@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 
 const App = () => {
   const [fields, setFields] = useState([{ input: '', select: '', errors: {} }]);
+  const [options, setOptions] = useState(['Option A', 'Option B', 'Option C']); // initial options
+  const [newOption, setNewOption] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = (index, value) => {
@@ -34,10 +36,29 @@ const App = () => {
     });
   };
 
+  const addOption = () => {
+    if (!newOption.trim()) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Empty Option',
+        text: 'Please type something to add!',
+      });
+      return;
+    }
+    setOptions([...options, newOption]);
+    setNewOption('');
+    Swal.fire({
+      icon: 'success',
+      title: 'Option Added!',
+      text: `${newOption} added successfully.`,
+      timer: 1200,
+      showConfirmButton: false,
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // যদি কোনো field না থাকে
     if (fields.length === 0) {
       Swal.fire({
         icon: 'warning',
@@ -85,6 +106,8 @@ const App = () => {
     <div className="p-6 max-w-3xl mx-auto">
       <h2 className="text-2xl font-bold mb-4 text-orange-500">6sense HQ Limited Form</h2>
 
+     
+
       <form onSubmit={handleSubmit} className="space-y-4 border p-6 rounded-lg shadow-lg">
         {fields.map((item, index) => (
           <div key={index} className="flex gap-4 items-start">
@@ -106,10 +129,11 @@ const App = () => {
                 onChange={(e) => handleSelectChange(index, e.target.value)}
               >
                 <option value="">Select option</option>
-                <option value="Option A">Option A</option>
-                <option value="Option B">Option B</option>
-                <option value="Option C">Option C</option>
-                <option value="Option D">Option D</option>
+                {options.map((opt, idx) => (
+                  <option key={idx} value={opt}>
+                    {opt}
+                  </option>
+                ))}
               </select>
               {item.errors.select && <p className="text-red-500 text-sm mt-1">{item.errors.select}</p>}
             </div>
@@ -167,7 +191,6 @@ const App = () => {
           <span className="text-red-500">Boni</span>{' '}
           <span className="text-blue-500">Amin</span>{' '}
           <span className="text-green-500">Jayed</span>{' '}
-          <span className="text-yellow-500">Rahman</span>
         </span>
       </h2>
     </div>
