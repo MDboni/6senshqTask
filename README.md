@@ -1,12 +1,28 @@
-# React + Vite
+Frontend Developer Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Environment: React/Nextjs
 
-Currently, two official plugins are available:
+1. Build a form with an input field and a select box to get user
+information. The input field and select box will be side by side.
+2. Add field validation so that the fields are required and an error
+message shows below the input and select field if form is submitted
+without any information.
+3. Print the form state below the form with h3 tags
+4. Now add a plus button in the form which will add one input field and
+one select box.
+5. Handle the onChange event of the input field and select box to save
+the values in a state
+6. Add a delete button beside the select box which will delete the
+corresponding input and select box
+7. Add a required validation for all the fields so that an error message
+shows below the input or select if it is empty after submitting the
+form
+8. Print the form state below the form in a table format
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+<img width="1183" height="453" alt="image" src="https://github.com/user-attachments/assets/bc68fa46-7ebf-4175-ab54-0e2377645c6d" />
+<img width="847" height="515" alt="image" src="https://github.com/user-attachments/assets/fb371453-1c18-4f74-9826-b247e4b52cac" />
+<img width="814" height="587" alt="image" src="https://github.com/user-attachments/assets/a08bcd61-f6a1-4455-bae1-5468fc0f21d4" />
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
